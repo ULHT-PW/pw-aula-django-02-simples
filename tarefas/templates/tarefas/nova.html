@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tarefa</title>
+</head>
+<body>
+
+    <h1>Nova Tarefa</h1>
+
+
+    <form action="" method="post">
+
+        {% csrf_token %}
+<table>
+        {{ form.as_table }}
+</table>
+        <input type="submit" value="Criar">
+    </form>
+
+
+</body>
+</html>
