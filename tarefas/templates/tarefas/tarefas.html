@@ -9,19 +9,28 @@
 </head>
 
 <body>
-    <a href="{% url 'tarefas:lista' %}">Lista</a>
-    <a href="{% url 'tarefas:nova' %}">Nova</a>
-
+   
     <h1>Lista de tarefas</h1>
+
+    <a href="{% url 'tarefas:login' %}">Login</a>
+    <a href="{% url 'tarefas:logout' %}">Logout</a>
 
     <ul>
         {% for tarefa in tarefas %}
         <li>{{ tarefa.titulo }}
 
-            <a href="{% url 'tarefas:editar' tarefa.id %}">Editar</a>
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'tarefas:editar' tarefa.id %}">Editar</a>              
+            {% endif %}
         </li>
         {% endfor %}
     </ul>
+    
+    <p>Para editar tarefas, deve estar conetado.</p>
+
+    {% if request.user.is_authenticated %}
+        <a href="{% url 'tarefas:nova' %}">Nova</a>  
+    {% endif %}
 
 </body>
 
