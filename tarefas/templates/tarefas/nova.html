@@ -14,6 +14,7 @@
         {% csrf_token %}
         {{ form.as_p }}
 
+        <a href="{% url 'tarefas:lista' %}">Cancelar</a>
         <input type="submit" value="Criar">
     </form>
 
